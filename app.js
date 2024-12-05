@@ -8,5 +8,6 @@ const express = require('express'),
 
 app.use(bodyParser.json());
 app.use('/auth', authRoutes);
+app.use(express.static('frontend'));
 
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

@@ -18,9 +18,20 @@ const express = require('express'),
 
 //*** Login Route ***//
 router.post('/login', async (req, res) => {
-    const {email, password} = req.body,
-        user = mockUsers.find((u) => u.email === email);
+    const {email, password} = req.body;
+    if (!email) {
+        return res.status(401).json({
+            message: 'Email field is required'
+        });
+    }
 
+    if (!password) {
+        return res.status(401).json({
+            message: 'Password field is required'
+        });
+    }
+
+    const user = mockUsers.find((u) => u.email === email);
     if (!user || !(await bcrypt.compare(password, user.password))) {
         return res.status(401).json({
             message: 'Invalid Credentials'
@@ -31,7 +42,10 @@ router.post('/login', async (req, res) => {
         id: user.id,
         email: user.email
     });
-    res.json({token});
+    res.json({
+        message: 'Logged in successfully.',
+        token
+    });
 });
 
 //*** Profile Route ***//
