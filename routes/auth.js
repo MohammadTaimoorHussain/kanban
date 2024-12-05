@@ -2,19 +2,21 @@ const express = require('express'),
     bcrypt = require('bcryptjs'),
     {generateToken} = require('../utils/jwt'),
     router = express.Router(),
-    mockUsers = [
-        {
-            id: 1,
-            email: "user1@jwt.com",
-            password: bcrypt.hashSync('password', 10)
-        },
-        {
-            id: 2,
-            email: "user2@jwt.com",
-            password: bcrypt.hashSync('password', 10)
-        }
-    ],
+    mysql = require('mysql'),
+    db = mysql.createConnection({
+        host: "127.0.0.1",
+        user: "root",
+        password: "root",
+        database: 'kanban'
+    }),
     authenticate = require('../middleware/authMiddleware');
+
+db.connect((err) => {
+    if (err) {
+        return console.log('Error connecting to MySQL:', err);
+    }
+    console.log('Connected to MySQL');
+});
 
 //*** Login Route ***//
 router.post('/login', async (req, res) => {
@@ -31,21 +33,34 @@ router.post('/login', async (req, res) => {
         });
     }
 
-    const user = mockUsers.find((u) => u.email === email);
-    if (!user || !(await bcrypt.compare(password, user.password))) {
-        return res.status(401).json({
-            message: 'Invalid Credentials'
-        });
-    }
+    db.query('SELECT * FROM users WHERE email = ?', [email], (err, results) => {
+        if (err) {
+            return res.status(500).json({error: 'Database query error'});
+        }
+        if (results.length === 0) {
+            return res.status(400).json({message: 'User not found'});
+        }
 
-    const token = generateToken({
-        id: user.id,
-        email: user.email
-    });
-    res.json({
-        message: 'Logged in successfully.',
-        token,
-        user
+        const user = results[0];
+        bcrypt.compare(password, user.password, (err, isMatch) => {
+            if (err) {
+                return res.status(500).json({error: 'Error comparing passwords'});
+            }
+            if (!isMatch) {
+                return res.status(400).json({message: 'Incorrect password'});
+            }
+
+            const token = generateToken({
+                id: user.id,
+                email: user.email
+            });
+
+            res.json({
+                message: 'Logged in successfully.',
+                token,
+                user
+            });
+        });
     });
 });
 
