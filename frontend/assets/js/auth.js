@@ -30,6 +30,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
                 hideAfter : 1500,
             });
             localStorage.setItem('auth-token', result.token);
+            localStorage.setItem('active-user', result.user.email);
             setTimeout(() => window.location.href = 'kanban.html', 2000);
         } else {
             errorMessage.textContent = result.message;
