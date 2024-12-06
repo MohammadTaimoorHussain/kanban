@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Profile | Mohammad Taimoor Hussain</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style"/>
+</head>
+
+<body class="loading" data-layout-color="light" data-leftbar-theme="dark" data-layout-mode="boxed"
+      data-leftbar-compact-mode="scrollable" data-rightbar-onstart="true">
+<div class="wrapper">
+    <div class="content-page">
+        <div class="content">
+            <div class="navbar-custom">
+                <ul class="list-unstyled topbar-menu float-end mb-0">
+                    <li class="dropdown notification-list d-lg-none">
+                        <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button"
+                           aria-haspopup="false" aria-expanded="false">
+                            <i class="dripicons-search noti-icon"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-animated dropdown-lg p-0">
+                            <form class="p-3">
+                                <input type="text" class="form-control" placeholder="Search ..."
+                                       aria-label="Recipient's username">
+                            </form>
+                        </div>
+                    </li>
+                    <li class="dropdown notification-list">
+                        <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#"
+                           role="button" aria-haspopup="false"
+                           aria-expanded="false">
+                                    <span class="account-user-avatar">
+                                        <img src="assets/images/users/taimoor-hussain-profile.png" alt="user-image"
+                                             class="rounded-circle">
+                                    </span><span>
+                                        <span class="account-user-name mt-2" id="active-user"></span>
+                                    </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
+                            <a href="kanban.html" class="dropdown-item notify-item">
+                                <i class="mdi mdi-view-dashboard-outline me-1"></i>
+                                <span>Dashboard</span>
+                            </a>
+                            <a href="profile.html" class="dropdown-item notify-item">
+                                <i class="mdi mdi-account-circle me-1"></i>
+                                <span>My Account</span>
+                            </a>
+                            <button id="logout-btn" class="dropdown-item notify-item">
+                                <i class="mdi mdi-logout me-1"></i>
+                                <span>Logout</span>
+                            </button>
+                        </div>
+                    </li>
+
+                </ul>
+                <div class="app-search dropdown d-none d-lg-block">
+                    <form>
+                        <div class="input-group">
+                            <input type="text" class="form-control dropdown-toggle" placeholder="Search..."
+                                   id="top-search">
+                            <span class="mdi mdi-magnify search-icon"></span>
+                            <button class="input-group-text btn-primary" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="container-fluid mt-2">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card bg-primary shadow-lg">
+                            <div class="card-body profile-user-box">
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <div class="avatar-lg">
+                                                    <img src="assets/images/users/taimoor-hussain-profile.png"
+                                                         alt="taimoor-hussain-profile"
+                                                         class="rounded-circle img-thumbnail">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div>
+                                                    <h4 class="mt-1 mb-1 text-white" id="active-username"></h4>
+                                                    <ul class="mb-0 list-inline text-light">
+                                                        <li class="list-inline-item me-3">
+                                                            <h6 class="mb-1 text-white"
+                                                                id="active-user-joining-date"></h6>
+                                                            <p class="mb-0 font-13 text-white-50">Joining Date</p>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <h6 class="mb-1 text-white" id="active-user-role"></h6>
+                                                            <p class="mb-0 font-13 text-white-50">Work As</p>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-xl-12">
+                                        <div class="card shadow-lg">
+                                            <div class="card-body">
+                                                <h4 class="header-title mt-0 mb-3">Basic Information</h4>
+                                                <p class="text-muted font-13" id="active-user-bio"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card shadow-lg">
+                            <div class="card-body">
+                                <form>
+                                    <h5 class="mb-4 text-uppercase"><i class="mdi mdi-account-circle me-1"></i> Personal Info</h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="firstname" class="form-label">First Name</label>
+                                                <input type="text" class="form-control" id="firstname" placeholder="Enter first name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="lastname" class="form-label">Last Name</label>
+                                                <input type="text" class="form-control" id="lastname" placeholder="Enter last name">
+                                            </div>
+                                        </div> <!-- end col -->
+                                    </div> <!-- end row -->
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label for="userbio" class="form-label">Bio</label>
+                                                <textarea class="form-control" id="userbio" rows="4" placeholder="Write something..."></textarea>
+                                            </div>
+                                        </div> <!-- end col -->
+                                    </div> <!-- end row -->
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="useremail" class="form-label">Email Address</label>
+                                                <input type="email" class="form-control" id="useremail" placeholder="Enter email">
+                                                <span class="form-text text-muted"><small>If you want to change email please <a href="javascript: void(0);">click</a> here.</small></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="userpassword" class="form-label">Password</label>
+                                                <input type="password" class="form-control" id="userpassword" placeholder="Enter password">
+                                                <span class="form-text text-muted"><small>If you want to change password please <a href="javascript: void(0);">click</a> here.</small></span>
+                                            </div>
+                                        </div> <!-- end col -->
+                                    </div> <!-- end row -->
+
+                                    <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-office-building me-1"></i> Company Info</h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="companyname" class="form-label">Company Name</label>
+                                                <input type="text" class="form-control" id="companyname" placeholder="Enter company name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="cwebsite" class="form-label">Website</label>
+                                                <input type="text" class="form-control" id="cwebsite" placeholder="Enter website url">
+                                            </div>
+                                        </div> <!-- end col -->
+                                    </div> <!-- end row -->
+
+                                    <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-earth me-1"></i> Social</h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="social-fb" class="form-label">Facebook</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="mdi mdi-facebook"></i></span>
+                                                    <input type="text" class="form-control" id="social-fb" placeholder="Url">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="social-tw" class="form-label">Twitter</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="mdi mdi-twitter"></i></span>
+                                                    <input type="text" class="form-control" id="social-tw" placeholder="Username">
+                                                </div>
+                                            </div>
+                                        </div> <!-- end col -->
+                                    </div> <!-- end row -->
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="social-insta" class="form-label">Instagram</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="mdi mdi-instagram"></i></span>
+                                                    <input type="text" class="form-control" id="social-insta" placeholder="Url">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="social-lin" class="form-label">Linkedin</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="mdi mdi-linkedin"></i></span>
+                                                    <input type="text" class="form-control" id="social-lin" placeholder="Url">
+                                                </div>
+                                            </div>
+                                        </div> <!-- end col -->
+                                    </div> <!-- end row -->
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="social-sky" class="form-label">Skype</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="mdi mdi-skype"></i></span>
+                                                    <input type="text" class="form-control" id="social-sky" placeholder="@username">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="social-gh" class="form-label">Github</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="mdi mdi-github"></i></span>
+                                                    <input type="text" class="form-control" id="social-gh" placeholder="Username">
+                                                </div>
+                                            </div>
+                                        </div> <!-- end col -->
+                                    </div> <!-- end row -->
+
+                                    <div class="text-end">
+                                        <button type="submit" class="btn btn-success mt-2"><i class="mdi mdi-content-save"></i> Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="assets/js/vendor.min.js"></script>
+<script src="assets/js/app.min.js"></script>
+<script src="assets/js/custom.js"></script>
+<script src="assets/js/profile.js"></script>
+</body>
+</html>

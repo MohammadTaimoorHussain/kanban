@@ -24,21 +24,39 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
         const result = await response.json();
         if (response.ok) {
             $.toast({
+                heading: 'Congratulations!',
                 text: result.message,
-                position: 'top-right',
-                allowToastClose : false,
-                hideAfter : 1500,
+                icon: 'success',
+                loader: true,
+                loaderBg: 'green',
+                position: 'top-right'
             });
             localStorage.setItem('auth-token', result.token);
-            localStorage.setItem('active-user', result.user.email);
             setTimeout(() => window.location.href = 'kanban.html', 2000);
         } else {
-            errorMessage.textContent = result.message;
             btnSubmit.textContent = 'Log In';
+            if (response.status === 500) {
+                return $.toast({
+                    heading: response.statusText,
+                    text: result.error,
+                    icon: 'error',
+                    loader: true,
+                    loaderBg: 'red',
+                    position: 'top-right'
+                })
+            }
+            errorMessage.textContent = result.message;
         }
     } catch (error) {
         console.error('Error:', error);
-        errorMessage.textContent = 'An error occurred, please try again.';
         btnSubmit.textContent = 'Log In';
+        $.toast({
+            heading: 'Something went wrong',
+            text: error,
+            icon: 'error',
+            loader: true,
+            loaderBg: 'red',
+            position: 'top-right'
+        })
     }
 });
